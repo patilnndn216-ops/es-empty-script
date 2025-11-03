@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Techfest 2025 — IIT Bombay | Innovate. Inspire. Impact.</title>
+
+<meta name="description" content="Techfest 2025 — Asia's largest science & technology festival at IIT Bombay. Competitions, workshops, and innovation showcases." />
+<meta property="og:title" content="Techfest 2025 — IIT Bombay" />
+<meta property="og:description" content="Innovate. Inspire. Impact. Join Asia's largest tech festival for workshops, competitions and inspiring talks." />
+<meta name="theme-color" content="#004aad" />
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --primary:#004aad;
+  --accent:#00c6ff;
+  --bg:#f5f9ff;
+  --navy:#001f54;
+  --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body {
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--navy);
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+
+/* Header */
+header {
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(0,30,80,0.8);
+  backdrop-filter:blur(8px);
+  color:white;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0.75rem 1rem;
+  z-index:1000;
+}
+header h1 {font-size:1.2rem;font-weight:700;}
+header nav a {
+  color:white;text-decoration:none;margin:0 0.75rem;font-weight:500;
+}
+header nav a:hover{color:var(--accent)}
+
+/* Hero Section */
+.hero {
+  position:relative;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  min-height:100vh;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+.hero::before {
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#001f54 0%,#004aad 50%,#001f54 100%);
+  z-index:1;
+}
+canvas#particles {
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  z-index:0;
+}
+.hero-content {
+  position:relative;z-index:2;
+  max-width:800px;padding:1rem;
+  animation:fadeIn 2s ease;
+}
+.hero h2 {
+  font-size:clamp(2rem,5vw,3rem);
+  font-weight:700;
+  margin-bottom:0.5rem;
+}
+.hero p {
+  font-size:1.1rem;
+  margin-bottom:1rem;
+}
+.hero .btn {
+  background:var(--white);
+  color:var(--primary);
+  padding:0.7rem 1.4rem;
+  border-radius:999px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  transition:all .3s ease;
+}
+.hero .btn:hover {
+  background:var(--accent);
+  color:white;
+  transform:translateY(-3px);
+}
+
+/* Sections */
+section {
+  padding:4rem 1rem;
+  max-width:1100px;
+  margin:auto;
+}
+h3 {text-align:center;font-size:1.8rem;margin-bottom:1rem;color:var(--primary)}
+section p {text-align:center;margin-bottom:2rem;}
+
+/* Grid cards */
+.grid {
+  display:grid;
+  gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+.card {
+  background:white;
+  border-radius:1rem;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  padding:1.5rem;
+  transition:transform .3s,box-shadow .3s;
+  opacity:0;transform:translateY(40px);
+}
+.card.show {
+  opacity:1;
+  transform:translateY(0);
+  transition:all .6s ease;
+}
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+.card h4 {color:var(--primary);margin-bottom:.5rem;}
+
+/* Form */
+form {
+  display:grid;gap:1rem;max-width:600px;margin:auto;
+}
+input,select,textarea {
+  width:100%;padding:0.8rem;border-radius:8px;border:1px solid #ddd;
+  font-family:inherit;
+}
+button[type="submit"] {
+  background:var(--primary);color:white;border:none;
+  padding:0.8rem 1.4rem;border-radius:999px;font-weight:700;
+  cursor:pointer;transition:background .3s;
+}
+button[type="submit"]:hover {background:#003799}
+
+/* Footer */
+footer {
+  background:#001f54;color:white;text-align:center;padding:1.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Techfest 2025</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#register">Register</a>
+  </nav>
+</header>
+
+<section class="hero" id="home" aria-label="Hero section">
+  <canvas id="particles"></canvas>
+  <div class="hero-content">
+    <h2>Techfest 2025 — Innovate. Inspire. Impact.</h2>
+    <p>Join Asia’s largest Science & Technology Festival at IIT Bombay. Experience innovation, competitions, and inspiration.</p>
+    <button class="btn" onclick="document.querySelector('#register').scrollIntoView({behavior:'smooth'})">Register Now</button>
+  </div>
+</section>
+
+<section id="about">
+  <h3>About Techfest</h3>
+  <p>Techfest is IIT Bombay’s annual science and technology festival, hosting thousands of innovators, students, and visionaries.</p>
+  <div class="grid">
+    <div class="card"><h4>Mission</h4><p>To inspire innovation and empower youth through technology and creativity.</p></div>
+    <div class="card"><h4>Legacy</h4><p>Over 25 years of fostering ideas and breakthroughs in science, tech, and sustainability.</p></div>
+    <div class="card"><h4>Community</h4><p>Engaging 1,00,000+ participants from across the world each year.</p></div>
+  </div>
+</section>
+
+<section id="events">
+  <h3>Highlights</h3>
+  <p>Competitions, workshops, and exhibitions that push boundaries of science and innovation.</p>
+  <div class="grid">
+    <div class="card"><h4>Robotics Challenge</h4><p>Battle of autonomous robots in exciting tasks.</p></div>
+    <div class="card"><h4>Hackathon</h4><p>48-hour innovation marathon with problem statements from industry leaders.</p></div>
+    <div class="card"><h4>AI Workshops</h4><p>Hands-on learning sessions on Machine Learning & Data Science.</p></div>
+  </div>
+</section>
+
+<section id="register">
+  <h3>Register Now</h3>
+  <p>Fill out the form to participate in Techfest 2025 events and workshops.</p>
+  <form id="regForm" novalidate>
+    <input type="text" id="name" placeholder="Full Name *" required />
+    <input type="email" id="email" placeholder="Email *" required />
+    <input type="text" id="college" placeholder="College / Organization *" required />
+    <select id="interest" required>
+      <option value="">Select Interest *</option>
+      <option>Robotics</option>
+      <option>AI / ML</option>
+      <option>Hackathon</option>
+      <option>Workshops</option>
+    </select>
+    <textarea id="message" placeholder="Message (optional)"></textarea>
+    <button type="submit">Submit</button>
+    <p id="status"></p>
+  </form>
+</section>
+
+<footer>
+  © 2025 Techfest IIT Bombay. All rights reserved.
+</footer>
+
+<script>
+/* Particle Animation */
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let particles=[];
+const num=100;
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+window.addEventListener('resize',resize);resize();
+for(let i=0;i<num;i++){
+  particles.push({x:Math.random()*canvas.width,
+                  y:Math.random()*canvas.height,
+                  r:Math.random()*2+1,
+                  dx:(Math.random()-0.5)*0.8,
+                  dy:(Math.random()-0.5)*0.8});
+}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="rgba(255,255,255,0.8)";
+  for(let p of particles){
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+    p.x+=p.dx;p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width)p.dx*=-1;
+    if(p.y<0||p.y>canvas.height)p.dy*=-1;
+  }
+  requestAnimationFrame(animate);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  animate();
+}
+
+/* Fade-in on scroll */
+const cards=document.querySelectorAll('.card');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('show');
+  });
+},{threshold:0.2});
+cards.forEach(c=>observer.observe(c));
+
+/* Simple Form Validation */
+const form=document.getElementById('regForm');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const college=document.getElementById('college').value.trim();
+  const interest=document.getElementById('interest').value;
+  const status=document.getElementById('status');
+  if(!name||!email||!college||!interest){
+    status.style.color='red';
+    status.textContent='Please fill all required fields.';
+    return;
+  }
+  status.style.color='green';
+  status.textContent='Thank you for registering!';
+  form.reset();
+});
+</script>
+</body>
+</html>
